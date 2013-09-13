@@ -71,6 +71,24 @@ class tables_boreholes {
             echo "</script>";
         }
     }
+    
+    /**
+     * set the correct Title for each record
+     * 
+     * @version 1.0
+     * @author Mirko Maelicke <mirko@maelicke-online.de>
+     */
+    function getTitle(&$record){
+        if ($record->val('name') == NULL){
+            $title = "Borehole  - id: ".$record->val('id_borehole');
+        }
+        else {
+            $title = "Borehole ".$record->val('name');
+        }
+        
+        return $title;
+    }
+
 }
 
 ?>
