@@ -91,15 +91,12 @@ class tables_stations {
             $content .= "<option value='index.php?-table=sensors&type_station==".$sensor->val('type_station')
                     ."&id_station==".$sensor->val('id_station')
                     ."&sensor==".$sensor->val('sensor')
-                    ."&type_timeseries==".$sensor->val('type_timeseries')
-            /*      Changed content of dropdown list with more comprehensive entries (LV - v1.1.2)*/
+                    ."&type_timeseries==".$sensor->val('type_timeseries')."&-action=plot'>"
                     .$sensor->val('description')." [aggregation-sensor: ".$sensor->val('sensor')." | ".$sensor->val('sensortype')."]</option>";           
             }
         }
         $content .= "</select><br>"; 
         $content .= "  Aggregation types are I (Instantenious), J (Daily) or M (Monthly)<br/>";
-        
-        $content .= "  Aggregation types are I (Instantenious), J (Daily) or M (Monthly)";
         return array(
             'content' => $content,
             'class' => 'main',
