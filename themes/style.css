@@ -1,0 +1,212 @@
+/* 
+    Document   : style
+    Created on : 10.05.2013, 10:21:47
+    Author     : MIrko Maelicke
+    Description:
+        Purpose of the stylesheet follows.
+*/
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    height: 100%;
+    width:100%;
+    /*width: 1000px;
+    margin-left: auto;
+    margin-right: auto;*/
+    background-color: rbb(251, 250, 249);
+    position: absolute;   
+}
+div#site_logo {
+    margin-bottom: 0px !important;
+}
+
+/* -------- hide not-used actions -------- */
+.contentActions {
+    display: none;
+}
+
+#left_column {
+    display: none;
+}
+ul#table_selection_tabs {
+    display: none;
+}
+
+#main_column {
+    width: 940px !important;
+}
+
+ul#record_tabs {
+    display: none;
+}
+
+ul#result-list-actions {
+    display: none;
+}
+
+div#selected-actions {
+    display: none;
+}
+
+table#main_table {
+    width: 940px !important;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dataface-sections-left-column{
+    display: none;
+}
+
+div.page {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto; 
+    border: 1px solid rgb(238,238,238);
+    box-shadow: 0px 0px 2em rgb(153,153,153);
+    padding: 0px;
+}
+
+#list-window {
+    width: 900px;
+    height: auto;
+    overflow: auto;
+    margin: 0px;
+    padding: 0px;
+}
+
+#top-section {
+    background-image: url('../../images/bg-logoheader.png');
+    background-repeat: no-repeat;
+}
+
+div.fineprint {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 1000px;
+}
+
+#portlet-navigation-tree {
+    width: 102px;
+    height: 18px;
+    position: absolute;
+    overflow: hidden;
+    left: 102px;
+}
+
+#portlet-navigation-tree:hover {
+
+    height: 100%;
+    width:auto;
+    overflow-y: auto;
+}
+
+#editor-grid{
+    width: 960px;
+}
+
+div.sidebar {
+    /*border: 1px solid rgb(238,238,238);*/
+    border-radius: 15px 0px 0px 15px;
+    position: fixed; 
+    z-index: 1;
+    width: 50px;
+    margin-left: -50px;
+    overflow: hidden;
+    top: 170px;
+    background-color: white;
+    padding: 0px;
+}
+div.sidebar:hover {
+    width: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2em rgb(153,153,153);
+
+}
+
+div.sidebar ul {
+    margin: 0px;
+}
+
+div.sidebar li {
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    margin: 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+div.sidebar li:hover {
+    background-color: rgb(238,238,238);
+}
+
+div.sidebar a {
+    text-decoration: none;
+    margin-left: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 120%;
+    font-weight: bold;
+}
+div.sidebar span {
+    margin-left: 20px;
+}
+
+div.sidebar li:hover a {
+    color: black;
+    font-weight: bolder;
+}
+
+/* ------ Startpage ------ */
+h1#startpage_title {
+    font-size: 250%;
+}
+
+div.startpage_quicklink ul {
+    position: relative;
+    width: auto;
+    padding: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+div.startpage_quicklink li {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid rgb(238,238,238);
+    box-shadow: 0px 0px 5em rgb(123,123,123);
+    -moz-border-radius: 15px;
+    border-radius:  15px;
+    margin-right: 50px;
+}
+
+div.startpage_quicklink img {
+    margin: 15px;
+    cursor: pointer;
+}
+
+p#startpage_intro {
+    font-size: 120%;
+}
+
+div#start_editing {
+    position: relative;
+    margin-top: 50px;
+    font-size: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+div#edit_area {
+    display: none;
+}
+
+div#edit_area a {
+    text-decoration: none;
+}

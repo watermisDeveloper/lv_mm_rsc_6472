@@ -1,0 +1,43 @@
+{use_macro file="Dataface_Main_Template.html"}
+    {fill_slot name="html_title"}Water MIS{/fill_slot}
+    {fill_slot name="custom_javascripts"}
+        <!-- jQuery library (served from Google) -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <!-- bxSlider Javascript file -->
+        <script src="js/bxslider/jquery.bxslider.min.js"></script>
+        <script type ="text/javascript" src="js/startpage.js"></script>
+        <!-- load OpenLayers -->
+        <script src="js/ol/OpenLayers.js"></script>
+        <!-- load Google Street Maps -->
+         <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+        {define_slot name="JSON_parse"}{/define_slot}
+    {/fill_slot}
+    {fill_slot name="main_column"}
+    <div id="startpage_sync_info" style='font-size: 70%; float: right; color: #01A9DB;'>
+        {define_slot name="startpage_sync_info"}{/define_slot}
+    </div>
+    <!-- show all messages -->
+    {if $ENV.APPLICATION_OBJECT->numMessages() > 0 }
+            {block name="before_message"}
+            <div class="portalMessage">
+                    <ul>
+                    {block name="message"}
+                    {foreach from=$ENV.APPLICATION_OBJECT->getMessages() item="msg"}
+                            <li>{$msg|nl2br}</li>
+                    {/foreach}
+                    </ul>
+            </div>
+            {block name="after_message"}
+    {/if}
+
+    <h1 id="startpage_title">{define_slot name="startpage_title"}Default Startpage{/define_slot}</h1>
+    <p id="startpage_intro">
+       {define_slot name="startpage_intro"}This is a default introduction. If you can read any default content
+       on this site, the template was not loaded properly. Please refer to a system administrator!{/define_slot}
+    </p>
+     <!-- Mapping area -->
+     {define_slot name="startpage_mapping"}{/define_slot}
+    
+     {define_slot name="startpage_edit"}{/define_slot}
+    {/fill_slot}
+{/use_macro}

@@ -1,0 +1,23 @@
+{use_macro file="Dataface_Main_Template.html"}
+{fill_slot name="custom_javascripts"}
+    <!-- jQuery library (served from Google) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!-- load OpenLayers -->
+    <script src="js/ol/OpenLayers.js"></script>
+    <!-- load Google Street Maps -->
+    <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+
+<script type="text/javascript" src='js/map.js'></script>
+    
+    {define_slot name="JSON_parse"}{/define_slot}
+
+{/fill_slot}
+
+
+{fill_slot name="main_column"}
+<h1 id="map_title">{define_slot name="map_title"}Boreholes map{/define_slot}</h1>
+        
+        <div class="map" style="width:900px; height:400px" id="map"></div>
+{/fill_slot}
+
+{/use_macro}

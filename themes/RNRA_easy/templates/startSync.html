@@ -1,0 +1,16 @@
+{use_macro file="Dataface_Main_Template.html"}
+    {fill_slot name="main_column"}
+        <h1>Synchronization</h1>
+        <p>{define_slot name='sync_message'}{/define_slot}</p>
+        <p>For synchronization please select the sync ZIP archive below:</p>
+        <form action="sync.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="zipfile" /><br>
+            <input type="submit" value="Start" />
+        </form>
+        
+        <h1>Timeseries Import</h1>
+        <p>{define_slot name='import_message'}{/define_slot}</p>
+        <p>For import please select the timeseries CSV below:</p>
+       {define_slot name ="import_form"}{/define_slot}
+    {/fill_slot}
+{/use_macro}

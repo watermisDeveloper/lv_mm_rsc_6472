@@ -1,0 +1,20 @@
+{use_macro file="Dataface_Main_Template.html"}
+    {fill_slot name="html_title"}Boreholes{/fill_slot}
+    {fill_slot name="custom_javascripts"}
+        <!-- jQuery library (served from Google) -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <!-- bxSlider Javascript file -->
+        <script src="js/bxslider/jquery.bxslider.min.js"></script>
+        <script type ="text/javascript" src="js/startpage.js"></script>
+        <!-- load OpenLayers -->
+        <script src="js/ol/OpenLayers.js"></script>
+        <!-- load Google Street Maps -->
+         <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+        {define_slot name="JSON_parse"}{/define_slot}
+    {/fill_slot}
+    {fill_slot name="main_column"}
+        <div class="boreholes_mapping">
+            {define_slot name="boreholes_mapping"}{/define_slot}
+        </div>{/define_slot}
+    {/fill_slot}
+{/use_macro}

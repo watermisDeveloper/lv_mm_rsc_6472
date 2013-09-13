@@ -1,0 +1,25 @@
+{use_macro file="Dataface_Main_Template.html"}
+{fill_slot name="main_column"}
+<!-- show all messages -->
+    {if $ENV.APPLICATION_OBJECT->numMessages() > 0 }
+            {block name="before_message"}
+            <div class="portalMessage">
+                    <ul>
+                    {block name="message"}
+                    {foreach from=$ENV.APPLICATION_OBJECT->getMessages() item="msg"}
+                            <li>{$msg|nl2br}</li>
+                    {/foreach}
+                    </ul>
+            </div>
+            {block name="after_message"}
+    {/if}
+
+<h1>Import Details on {define_slot name='title_date'}{/define_slot}</h1>
+<h3>File Info</h3>
+<p>Import was performed by {define_slot name="upl_user"}{/define_slot}</p>
+{define_slot name="upl_file_info"}{/define_slot}
+<h3>Data Info</h3>
+<p>The following data types were uploaded:</p>
+{define_slot name="upl_data_info"}{/define_slot}
+{/fill_slot}
+{/use_macro}

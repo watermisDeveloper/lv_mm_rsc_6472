@@ -1,0 +1,9 @@
+{use_macro name="Dataface_Main_Template"}
+{fill_slot name="main_column"}
+<table>
+    {foreach from=$data item=point}
+    <tr><td>{$point}</td></tr>
+    {/foreach}
+</table>
+{/fill_slot}
+{/use_macro}
