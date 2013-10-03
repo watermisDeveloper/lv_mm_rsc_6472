@@ -11,6 +11,9 @@
         <!-- load Google Street Maps -->
          <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
         {define_slot name="JSON_parse"}{/define_slot}
+        
+        <!-- Get geoserver adress from mysql database and parse it to js/openlayers -->
+        {define_slot name="geoserver"}{/define_slot}
     {/fill_slot}
     {fill_slot name="main_column"}
     <div id="startpage_sync_info" style='font-size: 70%; float: right; color: #01A9DB;'>
