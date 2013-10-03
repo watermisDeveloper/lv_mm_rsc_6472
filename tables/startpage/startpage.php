@@ -54,9 +54,10 @@ class tables_startpage {
             if($user->val('Role') == "admin_data" || $user->val('Role') == "admin_system"){
                 echo '<div id="start_editing">Edit this Page</div>';
                 echo '<div id="edit_area">';
-                echo '<ul><li><a href="'.$app->url('-table=startpage&-action=edit&element=title').'">Edit the title</a></li>';
-                echo '<li><a href="'.$app->url('-table=startpage&-action=edit&element=introduction').'">Edit the Introduction</a></li>';
+                echo '<ul><li><a href="'.$app->url('-table=startpage&-action=edit&element==title').'">Edit the title</a></li>';
+                echo '<li><a href="'.$app->url('-table=startpage&-action=edit&element==introduction').'">Edit the Introduction</a></li>';
 //                echo '<li><a href="'.$app->url('-table=startpage&-action=new&element=anouncement').'">Add a new anouncement</a></li>';
+                echo '<li><a href="'.$app->url('-table=startpage&-action=edit&element==geoserver').'">edit Geoserver URL</a></li>';
                 echo '<li><a href="'.$app->url('-table=mis_upl_history&-action=list').'">View upload history</a></li>';
                 echo '</ul><div>';
             }
@@ -305,6 +306,25 @@ class tables_startpage {
         $time->setTimestamp((int)$info->val('content'));
         
         echo "Last synchronized: ".$time->format('D, j. M Y g:i a');
+    }
+    
+    /**
+     * get the geoserver URL adress from starpage table in mysql database and 
+     * parse it to Javascript into var GEOSERVER to make it manageble via MI
+     * and reachable via js/openlayers
+     * 
+     * @version 1.0
+     * @author Mirko Maelicke <mirko@maelicke-online.de>
+     */
+    function block__geoserver(){
+        /* get URL from database */
+        $app = Dataface_Application::getInstance();        
+        $geoserver = df_get_record('startpage', array('element'=>'geoserver'));
+        
+        /* parse to js/openlayers */
+        echo "<script type='text/javascript>'";
+        echo "GEOSERVER = '".$geoserver->val('content')."';";
+        echo "</script>";
     }
 }
 

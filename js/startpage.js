@@ -111,6 +111,11 @@ function init_map() {
         rwandabounds.extend(bl_point);
         rwandabounds.extend(tr_point);
 
+    /* geoserver URL was passed into var GEOSERVER*/
+    if (GEOSERVER == null){
+        GEOSERVER = 'http://41.215.250.87:8080/geoserver/ows?';
+    }
+
     //Define the MAP Options//
     var options = {
         'units' :   "m",
@@ -153,15 +158,15 @@ function init_map() {
     $('.layersDiv').css('color','black');
 
     /*create the wms layers (nb123 etc...)*/
-    nb1_wms = new OpenLayers.Layer.WMS("Catchment level 1", "http://41.215.250.87:8080/geoserver/ows?",
+    nb1_wms = new OpenLayers.Layer.WMS("Catchment level 1", GEOSERVER,
             {   layers: 'nwrmp_wgs84tm:NB1_wgs84tm',styles: 'NB1',transparent: true,format: 'image/png'},
             {   isBaseLayer: false,opacity: 0.8,tiled: false}
           );
-    nb2_wms = new OpenLayers.Layer.WMS("Catchment level 2", "http://41.215.250.87:8080/geoserver/wms?",
+    nb2_wms = new OpenLayers.Layer.WMS("Catchment level 2", GEOSERVER,
             {   layers: 'nwrmp_wgs84tm:NB2_wgs84tm',styles: 'NB2',transparent: true,format: 'image/png'},
             {   isBaseLayer: false,opacity: 0.8,tiled: false,visibility:false}
           );              
-    district_wms = new OpenLayers.Layer.WMS("District<hr>", "http://41.215.250.87:8080/geoserver/wms?",
+    district_wms = new OpenLayers.Layer.WMS("District<hr>", GEOSERVER,
             {   layers: 'nwrmp_wgs84tm:District_wgs84tm',styles: 'District',transparent: true,format: 'image/png'},
             {   isBaseLayer: false,opacity: 0.8,tiled: false,visibility:false}
           );
