@@ -6,7 +6,7 @@
  * denied. va_data user can only plot data of aggregation type M or A, as well 
  * as their own data. Higher permission roles can plot any data.
  * 
- * @version 1.0
+ * @version 1.1
  * @author Mirko Maelicke <mirko@maelicke-online.de>
  */
 class actions_plot {
@@ -25,6 +25,13 @@ class actions_plot {
         $agg = $record->strval('sensor');
         $agg = $agg{0};
         
+        /* get the owner of this station 
+         * caution: this script is run from the sensor ($record) not the station!
+         */
+        $station = df_get_record('stations', array('type_station'=>$record->val('type_station'),
+                'id_station'=>$record->val('id_station')));
+        $owner_userid = $station->val('owner_userid');
+        
         
         if (!isset($user)){
             if ($agg == 'M' || $agg == 'A'){
@@ -32,7 +39,7 @@ class actions_plot {
             }
         }
         elseif ($user->val('Role') == 'va_data') {
-            if ($record->val('owner_userid') == $user->val('userid')){
+            if ($owner_userid == $user->val('userid')){
                 $plot = TRUE;
             }
             elseif ($agg == 'M' || $agg == 'A'){
@@ -76,9 +83,12 @@ class actions_plot {
         }
         else {
             //redirect to startpage giving a message
-            echo '<meta http-equiv="refresh" content="0; URL=index.php?--msg=You+don\'t+have+'.
-                'permission+to+view+detailed+data.+Please+log+in+with+higher+permissions+or+chose+'.
-                'an+aggregated+sensor.">';
+            $owner = df_get_record('mis_users',array('userid'=>$owner_userid));
+            echo '<meta http-equiv="refresh" content="0; URL=index.php?-table=help&help_page=data_owner&--msg=You+don\'t+have+'.
+                'permission+to+view+detailed+data.The+requested+data+belongs+to+user+'.$owner->val('username').'">';
+//            echo '<pre>';
+//            var_dump($owner);
+//            echo '</pre>';
         }
     }
 }
