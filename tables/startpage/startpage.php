@@ -322,7 +322,7 @@ class tables_startpage {
         $geoserver = df_get_record('startpage', array('element'=>'geoserver'));
         
         /* parse to js/openlayers */
-        echo "<script type='text/javascript>'";
+        echo "<script type='text/javascript'>";
         echo "GEOSERVER = '".$geoserver->val('content')."';";
         echo "</script>";
     }
