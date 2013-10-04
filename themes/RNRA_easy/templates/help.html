@@ -2,6 +2,20 @@
 {fill_slot name="html_title"}Water MIS Help{/fill_slot}
 {fill_slot name="main_column"}
     <h1>Help page</h1>
+        <!-- show all messages -->
+    {if $ENV.APPLICATION_OBJECT->numMessages() > 0 }
+            {block name="before_message"}
+            <div class="portalMessage" style="margin-bottom: 25px;">
+                    <ul>
+                    {block name="message"}
+                    {foreach from=$ENV.APPLICATION_OBJECT->getMessages() item="msg"}
+                            <li>{$msg|nl2br}</li>
+                    {/foreach}
+                    </ul>
+            </div>
+            {block name="after_message"}
+    {/if}
+
     {define_slot name="help_content"}{/define_slot}
     <br>
     {define_slot name="help_index"}{/define_slot}
