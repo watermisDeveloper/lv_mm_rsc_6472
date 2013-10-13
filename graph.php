@@ -79,20 +79,22 @@ $aggregate_type = array('I'=>'None','D'=> 'Hour','J'=>'Daily','M'=>'Monthly','A'
                 color: darkblue;
             }
             ul.sidebar {
-                border: 1px solid rgb(238,238,238);
-                box-shadow: 0px 0px 2em rgb(153,153,153);
+                
                 position: fixed;
-                margin-left: -55px;
+                margin-left: -32px;
                 list-style-type: none;
                 width: 30px;
                 z-index: 1;
                 overflow: hidden;
                 padding-left: 0px;
-                background-color: rgb(238,238,238);
-                border-radius: 15px;
+                
             }
             ul.sidebar:hover {
                 width: 200px;
+                border: 1px solid rgb(238,238,238);
+                box-shadow: 0px 0px 2em rgb(153,153,153);
+                background-color: rgb(238,238,238);
+                border-radius: 15px;
             }
             ul.sidebar li {
                 height: 26px;
@@ -197,7 +199,9 @@ $(document).ready(function(){
                         $record->val('type_station').'&id_station='.$record->val('id_station').''; ?>">
                         <img src="images/sb_back.png" alt="  " /><span>back</span></a></li>
                 <li><div  id="sb_table"><img src="images/sb_table.gif" alt="  " /><span>table</span></div></li>
+                <!--
                 <li><div id="sb_structure"><img src="images/sb_structure.png" alt="  " /><span>structure</span></div></li>
+                -->
                 <li><div id="sb_exel"><img src="images/sb_excel.png" alt=" " style="width: 26px; height: 26px;" />
                         <span>Export to Exel</span></div></li>
             </ul>
@@ -233,7 +237,9 @@ $(document).ready(function(){
                     ?>
                 </table>
             </div>
+            <!--
             <div id="toggle_structure" class="toggle">Examine data structure</div>
+            -->
             <div id="structure" class="content">
                 <p>
                     <?php
