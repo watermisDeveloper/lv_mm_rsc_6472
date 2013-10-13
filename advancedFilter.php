@@ -1,5 +1,5 @@
 <table style="width: 100%;height: 100%; text-align: center" id='filterarea'> 
-    <tr><td>Filter by Catchment</td><td>Filter by River</td><td>Filter by District</td><td>Filter by Location</td></tr>
+    <tr><td>Filter by Catchment</td><td>Filter by River</td><td>Filter by District</td><td>Show coordinates (WGS84)</td></tr>
     <tr><td><select onchange='applyAdvFilter("nb1",this.options[this.selectedIndex].value);'>
     <?php
         while ($nb1 = mysql_fetch_row($nb1s)){
