@@ -54,7 +54,14 @@ class actions_plot {
             $query = "SELECT mydate,myvalue FROM timeseries WHERE type_station = '".$record->val('type_station').
                     "' and id_station = ".$record->val('id_station')." and sensor = '".
                     $record->val('sensor')."' and type_timeseries = '".$record->val('type_timeseries').
-                    "' ORDER BY mydate ASC";
+                    "' ORDER BY mydate ASC ";
+            /* this should be replaced by a datetime picker */
+            if (isset($_GET['plotlimit'])){
+                $query .= " LIMIT 0, {$_GET['plotlimit']}";
+            }
+            else {
+                $query .= " LIMIT 0, 5000";
+            }
             $res = mysql_query($query ,df_db());
             
             while ($row = mysql_fetch_row($res)){
